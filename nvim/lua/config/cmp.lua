@@ -1,0 +1,48 @@
+-- local cmp = require("cmp")
+-- local function janela_cmp()
+-- 	local base = cmp.config.window.bordered()
+-- 	base.max_width = 50
+-- 	base.max_height = 20
+-- 	return base
+-- end
+--
+-- cmp.setup({
+-- 	sources = cmp.config.sources({
+-- 		{ name = "nvim_lsp" },
+-- 		{ name = "buffer" },
+-- 		{ name = "path" },
+-- 		{
+-- 			name = "lazydev",
+-- 			group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+-- 		},
+-- 	}),
+--
+-- 	window = {
+-- 		completion = janela_cmp(),
+-- 		documentation = janela_cmp(),
+-- 	},
+--
+-- 	mapping = cmp.mapping.preset.insert({
+-- 		-- ["<C-j>"] = cmp.mapping.select_next_item(),
+-- 		-- ["<C-k>"] = cmp.mapping.select_prev_item(),
+-- 		-- ["<C-]>"] = cmp.mapping.scroll_docs(4),
+-- 		-- ["<C-[>"] = cmp.mapping.scroll_docs(-4),
+-- 		-- ["<C-A-j>"] = cmp.mapping.complete(),
+-- 		-- ["<C-A-k>"] = cmp.mapping.abort(),
+-- 		-- ["<Tab>"] = cmp.mapping.confirm({ select = false }),
+-- 		-- [""] = function (fa)
+-- 		-- 	cmp.visible
+-- 		--
+-- 		-- end
+-- 	}),
+--
+-- 	formatting = {
+-- 		format = function(entry, vim_item)
+-- 			-- Remove o campo menu para nvim_lsp (rust-analyzer)
+-- 			if entry.source.name == "nvim_lsp" then
+-- 				vim_item.menu = nil
+-- 			end
+-- 			return vim_item
+-- 		end,
+-- 	},
+-- })
