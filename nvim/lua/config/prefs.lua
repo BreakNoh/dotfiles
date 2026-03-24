@@ -10,29 +10,11 @@ vim.opt.ttyfast = true
 vim.opt.mouse = ""
 
 vim.g.mapleader = " " -- muda o <leader> pra ser o espaco
-vim.g.linguagens = {
-	"bash",
-	"sh",
-	"zsh",
-	"powershell",
-	"rust",
-	"toml",
-	"javascript",
-	"typescript",
-	"html",
-	"css",
-	"svelte",
-	"json",
-	"markdown",
-	"python",
-}
 -- Tamanho do Tab
 vim.opt.tabstop = identacao
 vim.opt.shiftwidth = identacao
 vim.opt.softtabstop = identacao
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 
 -- Coluna Números
