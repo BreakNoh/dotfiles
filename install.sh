@@ -14,5 +14,15 @@ backup() {
 	fi
 }
 
+# nvim
 backup "$CONFIG/nvim"
 ln -sf "$DOTFILES/nvim" "$CONFIG/nvim"
+
+# tmux
+# instala tpm se não tiver instalado
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+backup "$HOME/.tmux.conf"
+ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
