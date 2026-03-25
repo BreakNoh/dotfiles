@@ -1,0 +1,25 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+. "$HOME/.cargo/env"
+
+ZSH_THEME="agnoster"
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+source "$ZSH/oh-my-zsh.sh"
+
+alias cd='z'
+
+alias ls='lsd'
+alias ll="lsd -l"
+alias la="lsd -a"
+alias lla="lsd -la"
+
+alias vi="nvim"
+
+eval "$(zoxide init zsh)"
+
+NOME_SESSAO_TMUX="padrão"
+
+if [ -z "$TMUX" ]; then
+	tmux attach -t "$NOME_SESSAO_TMUX" &>/dev/null || tmux new -s "$NOME_SESSAO_TMUX"
+fi
