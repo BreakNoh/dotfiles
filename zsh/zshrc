@@ -6,6 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export LANG="pt_BR.UTF-8"
 export PAGER="bat"
 export EDITOR="nvim"
+export PAGER="bat"
 
 . "$HOME/.cargo/env"
 
