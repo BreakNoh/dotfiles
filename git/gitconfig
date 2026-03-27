@@ -1,0 +1,42 @@
+[user]
+	email = brematosmene@gmail.com
+	name = BreaKnoh
+
+[include]
+    path = .gitconfig.local
+
+[core]
+    autocrlf = input 
+    editor = nvim
+
+[include]
+    path = .gitconfig.local
+
+[pull]
+    rebase = true
+
+[push]
+	autoSetupRemote = true
+    default = current
+
+[fetch]
+    prune = true
+
+[column]
+    ui = auto
+
+[init]
+    defaultBranch = main
+
+[alias]
+    tree = log --graph --oneline --all
+    st = status
+    cm = commit -m
+    br = branch
+    co = checkout
+
+[color]
+    ui = auto
+
+[help]
+    autocorrect = 5

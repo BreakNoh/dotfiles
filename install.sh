@@ -44,8 +44,11 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 
 fi
 
-
 backup "$HOME/.zshrc"
 backup "$HOME/.zprofile"
 ln -sf "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/zsh/profile" "$HOME/.zprofile"
+
+# git
+backup "$HOME/.gitconfig"
+ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
