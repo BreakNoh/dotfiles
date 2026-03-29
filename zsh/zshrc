@@ -32,3 +32,10 @@ NOME_SESSAO_TMUX="padrão"
 if [ -z "$TMUX" ]; then
 	tmux attach -t "$NOME_SESSAO_TMUX" &>/dev/null || tmux new -s "$NOME_SESSAO_TMUX"
 fi
+
+# bun completions
+[ -s "/home/breno/.bun/_bun" ] && source "/home/breno/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
