@@ -5,6 +5,7 @@ return {
 
 	version = "1.*",
 
+	config = true,
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
