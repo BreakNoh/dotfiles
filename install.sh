@@ -4,51 +4,44 @@ DOTFILES="$HOME/dotfiles"
 CONFIG="$HOME/.config"
 
 mkdir -p "$CONFIG"
+mkdir -p "$HOME"
 
-# salva backup caso config já exista
 backup() {
-	if [ -e "$1" ] && [ ! -L "$1" ]; then
-		echo "Backup salvo em ${1}_backup"
-		rm -rf "${1}_backup"
-		mv "$1" "${1}_backup"
-	fi
+    if [ -e "$1" ] && [ ! -L "$1" ]; then
+        rm -rf "${1}_backup"
+        mv "$1" "${1}_backup"
+    fi
 }
 
-# nvim
-echo "== configurando nvim =="
-backup "$CONFIG/nvim"
-ln -sf "$DOTFILES/nvim" "$CONFIG/nvim"
+link() {
+    if [[ "$3" == "--backup" ]]; then
+        backup "$2"
+    fi
 
-# tmux
-echo "== configurando tmux =="
-# instala tpm se não tiver instalado
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-	echo "instalando tpm"
-	git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
+    ln -sfn "$1" "$2"
+}
 
-backup "$HOME/.tmux.conf"
-ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
+link "$DOTFILES/nvim" "$CONFIG/nvim" "$1"
+link "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf" "$1"
+link "$DOTFILES/zsh/zshrc" "$HOME/.zshrc" "$1"
+# link "$DOTFILES/zsh/profile" "$HOME/.zprofile" "$1"
+link "$DOTFILES/git/gitconfig" "$HOME/.gitconfig" "$1"
+link "$DOTFILES/kitty" "$CONFIG/kitty" "$1"
 
-# zsh
-echo "== configurando zsh =="
-backup "$HOME/.oh-my-zsh"
+
 # instala oh-my-zsh se não tiver instalado
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-	echo "instalando oh-my-zsh"
-	sh -c "$(curl -fsSLq https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &> /dev/null
-	echo "instalando plugins "
-	PLUGINS="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins"
-	git clone https://github.com/zsh-users/zsh-autosuggestions $PLUGINS/zsh-autosuggestions -q
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $PLUGINS/zsh-syntax-highlighting -q
-
+    sh -c "$(curl -fsSLq "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh")" "" --unattended &> /dev/null
 fi
 
-backup "$HOME/.zshrc"
-backup "$HOME/.zprofile"
-ln -sf "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
-ln -sf "$DOTFILES/zsh/profile" "$HOME/.zprofile"
+DIR_ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+DIR_PLUGINS="$DIR_ZSH_CUSTOM/plugins"
 
-# git
-backup "$HOME/.gitconfig"
-ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
+instalar_plugin() {
+    if [ ! -e "$DIR_PLUGINS/$1" ]; then
+        git clone "https://github.com/zsh-users/$1" "$DIR_PLUGINS/$1" -q
+    fi
+}
+
+instalar_plugin "zsh-autosuggestions"
+instalar_plugin "zsh-syntax-highlighting"
