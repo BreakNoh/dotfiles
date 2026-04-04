@@ -9,7 +9,7 @@ return {
 		local treesitter = require("nvim-treesitter")
 		local linguagens = {
 			"bash",
-			"sh",
+			-- "sh",
 			"zsh",
 			"powershell",
 			"rust",
