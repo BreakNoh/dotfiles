@@ -15,7 +15,7 @@ vim.opt.tabstop = identacao
 vim.opt.shiftwidth = identacao
 vim.opt.softtabstop = identacao
 
-vim.opt.foldlevel = 99
+-- vim.opt.foldlevel = 99
 
 -- Coluna Números
 vim.opt.number = true
