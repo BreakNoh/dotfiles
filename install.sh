@@ -27,6 +27,7 @@ link "$DOTFILES/zsh/zshrc" "$HOME/.zshrc" "$1"
 # link "$DOTFILES/zsh/profile" "$HOME/.zprofile" "$1"
 link "$DOTFILES/git/gitconfig" "$HOME/.gitconfig" "$1"
 link "$DOTFILES/kitty" "$CONFIG/kitty" "$1"
+link "$DOTFILES/prettier/prettierrc.json" "$HOME/.prettierrc.json" "$1"
 
 
 # instala oh-my-zsh se não tiver instalado
