@@ -26,6 +26,8 @@ return {
 			python = { "ruff_format" },
 
 			markdown = { "prettierd", "prettier" },
+			yaml = { "prettierd", "prettier" },
+			yml = { "prettierd", "prettier" },
 			json = { "prettierd", "prettier" },
 			jsonc = { "prettierd", "prettier" },
 			javascript = { "prettierd", "prettier" },
