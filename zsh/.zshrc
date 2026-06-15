@@ -5,7 +5,10 @@ fi
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
+export LANGUAGE="pt_BR.UTF-8"
 export LANG="pt_BR.UTF-8"
+export LC_ALL="pt_BR.UTF-8"
+
 export EDITOR="nvim"
 export PAGER="bat"
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.prettierrc.json"
