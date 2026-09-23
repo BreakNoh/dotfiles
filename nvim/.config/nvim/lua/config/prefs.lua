@@ -9,6 +9,7 @@ vim.opt.updatetime = 1000
 vim.opt.ttyfast = true
 vim.opt.mouse = ""
 
+vim.g.c_syntax_for_h = true
 vim.g.mapleader = " " -- muda o <leader> pra ser o espaco
 -- Tamanho do Tab
 vim.opt.tabstop = identacao
